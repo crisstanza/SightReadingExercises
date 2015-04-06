@@ -10,16 +10,16 @@ Demo/unit tests: <a href="http://crisstanza.github.io/SightReadingExercises/" ta
 
 
 
-## References:
+### References:
 
-http://thesightreadingproject.com/
-https://sightreadingfactory.com/
-https://practicesightreading.com/
-http://sightreadingmastery.com/
+* http://thesightreadingproject.com/
+* https://sightreadingfactory.com/
+* https://practicesightreading.com/
+* http://sightreadingmastery.com/
 
 
 
-### Sync gh-pages
+### Sync gh-pages:
 
 ```
 git push --force origin master:gh-pages
@@ -27,7 +27,7 @@ git reset --hard origin/gh-pages
 ```
 
 
-### Create gh-pages
+### Create gh-pages:
 
 ```
 git checkout --orphan gh-pages
