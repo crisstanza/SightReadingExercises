@@ -1,0 +1,63 @@
+div.box-borders, pre.box-borders {
+	border: 1px solid gray;
+	box-shadow: 3px 3px 1px gray;
+	background-color: #FDFDFD;
+}
+
+pre {
+	font-family: Courier;
+	font-size: 15pt;
+}
+
+pre.display-staff, div.answer, div.timed-score {
+	padding: 10px;
+	margin: auto;
+	text-align: center;
+}
+
+pre.display-staff {
+	width: 520px;
+}
+
+div.answer {
+	width: 320px;
+}
+
+div.timed-score {
+	width: 120px;
+}
+
+div.cleff {
+	margin: auto;
+	text-align: center;
+	font-size: 48pt;
+}
+
+div.answer {
+	font-family: Arial;
+	font-size: 18pt;
+}
+
+div.answer label, div.cleff label {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+div.answer input {
+	height: 20px;
+}
+
+pre.display-staff b {
+	position: relative;
+	top: 6px;
+	font-size: 20pt;
+	line-height: 18px;
+	color: blue;
+}
+
+label.disabled {
+	color: #DDD;	
+}
+
+body.error { background-color: red; }
+body.success { background-color: lime; }
