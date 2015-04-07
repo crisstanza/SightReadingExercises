@@ -1,4 +1,4 @@
-# Sight Reading Exercises Vs. 1.2.1
+# Sight Reading Exercises Vs. 1.2.2
 
 Tested under <b>JSUS</b> (<b>J</b>ava<b>S</b>cript <b>U</b>nit te<b>S</b>ting) - <a href="http://crisstanza.github.io/jsus/" target="_blank">crisstanza.github.io/jsus</a>.
 

@@ -48,7 +48,15 @@ var sre;
 		}
 	}
 
+	function firstClick() {
+		score.start();
+		firstClick = undefined;
+	}
+
 	function answerClick(element) {
+		if (firstClick) {
+			firstClick();
+		}
 		if (element.value == sre.currentNoteName(cleff())) {
 			success();
 			var answers = allAnswers();
@@ -101,7 +109,6 @@ var sre;
 			cleff.addEventListener('change', function() { cleffClick(this); } );
 		}
 		score = new TimedScore('time', 'total-success', 'total-error');
-		score.start();
 	}
 
 	window.addEventListener('load', start, false);
