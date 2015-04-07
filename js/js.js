@@ -7,6 +7,9 @@ var sre;
 	var DELAY_ERROR = 225;
 	var DELAY_SUCCESS = 175;
 
+	var KEY_A = 65;
+	var KEY_G = 71;
+
 	function success() {
 		var body = document.body;
 		body.className = 'success';
@@ -95,6 +98,16 @@ var sre;
 		}
 	}
 
+	function keyUp(key) {
+		if (key >= KEY_A && key <= KEY_G) {
+			var char = String.fromCharCode(key);
+			var answer = document.querySelector('div.answer input[type=radio][value='+char+']');
+			if (answer && !answer.disabled) {
+				answer.click(answer);
+			}
+		}
+	}
+
 	function start() {
 		sre = new SightReadingExercises();
 		sre.toString('staff');
@@ -109,6 +122,7 @@ var sre;
 			cleff.addEventListener('change', function() { cleffClick(this); } );
 		}
 		score = new TimedScore('time', 'total-success', 'total-error');
+		window.addEventListener('keyup', function(event) { event = event || window.event; keyUp(event.keyCode ? event.keyCode : event.which); }, false);
 	}
 
 	window.addEventListener('load', start, false);
