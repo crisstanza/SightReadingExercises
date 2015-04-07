@@ -61,3 +61,6 @@ label.disabled {
 
 body.error { background-color: red; }
 body.success { background-color: lime; }
+
+span.error { color: red; }
+span.success { color: blue; }

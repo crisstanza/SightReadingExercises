@@ -2,7 +2,7 @@ var sre;
 
 (function() {
 
-	var sre;
+	var sre, score;
 
 	var DELAY_ERROR = 225;
 	var DELAY_SUCCESS = 175;
@@ -10,12 +10,14 @@ var sre;
 	function success() {
 		var body = document.body;
 		body.className = 'success';
+		score.add1();
 	}
 
 	function error() {
 		var body = document.body;
 		body.className = 'error';
 		setTimeout(normal, DELAY_ERROR);
+		score.add2();
 	}
 
 	function normal() {
@@ -98,6 +100,8 @@ var sre;
 			var cleff = cleffs[i];
 			cleff.addEventListener('change', function() { cleffClick(this); } );
 		}
+		score = new TimedScore('time', 'total-success', 'total-error');
+		score.start();
 	}
 
 	window.addEventListener('load', start, false);
