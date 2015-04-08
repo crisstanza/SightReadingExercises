@@ -81,3 +81,8 @@ span.answers-and-score {
 	height: 60px;
 	margin: auto;
 }
+
+div.octocat-icon {
+	margin: auto;
+	width: 28px;
+}
