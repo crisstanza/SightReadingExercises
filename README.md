@@ -6,7 +6,7 @@ Demo/unit tests: <a href="http://crisstanza.github.io/SightReadingExercises/" ta
 
 Tested under <b>JSUS</b> (<b>J</b>ava<b>S</b>cript <b>U</b>nit te<b>S</b>ting) - <a href="http://crisstanza.github.io/jsus/" target="_blank">crisstanza.github.io/jsus</a>.
 
-
+External library: <b>TimedScore</b> - <a href="http://github.com/crisstanza/TimedScore/" target="_blank">github.com/crisstanza/TimedScore</a>.
 
 ### References:
 
