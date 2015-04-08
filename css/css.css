@@ -33,6 +33,10 @@ div.answer, div.timed-score {
 	height: 100%;
 }
 
+div.timed-score.box-borders > div {
+	padding-bottom: 2px;
+}
+
 div.cleff {
 	margin: auto;
 	text-align: center;
@@ -74,6 +78,6 @@ span.success { color: blue; }
 span.answers-and-score {
 	display: block;
 	width: 540px;
-	height: 55px;
+	height: 60px;
 	margin: auto;
 }

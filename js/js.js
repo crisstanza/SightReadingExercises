@@ -1,8 +1,6 @@
-var sre;
-
 (function() {
 
-	var sre, score;
+	var sre, score, didFirstClick;
 
 	var DELAY_ERROR = 225;
 	var DELAY_SUCCESS = 175;
@@ -53,11 +51,11 @@ var sre;
 
 	function firstClick() {
 		score.start();
-		firstClick = undefined;
+		didFirstClick = true;
 	}
 
 	function answerClick(element) {
-		if (firstClick) {
+		if (!didFirstClick) {
 			firstClick();
 		}
 		if (element.value == sre.currentNoteName(cleff())) {
@@ -70,13 +68,7 @@ var sre;
 			setTimeout(
 				function() {
 					newTurn();
-					var answers = allAnswers();
-					for (var i = 0 ; i < answers.length ; i++) {
-						var answer = answers[i];
-						answer.checked = false;
-						answer.disabled = false;
-						answer.parentNode.className = '';
-					}
+					enableAnswers();
 					normal();
 				}, DELAY_SUCCESS
 			);
@@ -85,6 +77,44 @@ var sre;
 			element.checked = false;
 			element.parentNode.className = 'disabled';
 			error();
+		}
+	}
+
+	function enableAnswers() {
+		var answers = allAnswers();
+		for (var i = 0 ; i < answers.length ; i++) {
+			var answer = answers[i];
+			answer.checked = false;
+			answer.disabled = false;
+			answer.parentNode.className = '';
+		}
+	}
+
+	function disableAnswers() {
+		var answers = allAnswers();
+		for (var i = 0 ; i < answers.length ; i++) {
+			var answer = answers[i];
+			answer.checked = false;
+			answer.disabled = true;
+			answer.parentNode.className = 'disabled';
+		}
+	}
+
+	function disableCleffs() {
+		var cleffs = allCleffs();
+		for (var i = 0 ; i < cleffs.length ; i++) {
+			var currentCleff = cleffs[i];
+			currentCleff.disabled = true;
+			currentCleff.parentNode.className = 'disabled';
+		}
+	}
+
+	function enableCleffs() {
+		var cleffs = allCleffs();
+		for (var i = 0 ; i < cleffs.length ; i++) {
+			var currentCleff = cleffs[i];
+			currentCleff.disabled = false;
+			currentCleff.parentNode.className = '';
 		}
 	}
 
@@ -108,20 +138,49 @@ var sre;
 		}
 	}
 
+	function end(time, total1, total2) {
+		var buffer = [];
+		buffer.push('Results:');
+		buffer.push('');
+		buffer.push('   Total time: '+time);
+		buffer.push('');
+		buffer.push('       Success: '+total1);
+		buffer.push('       Errors: '+total2);
+		buffer.push('');
+		buffer.push('');
+		buffer.push('Again?\n');
+		var again = confirm(buffer.join('\n'));
+		if (again) {
+			sre = new SightReadingExercises();
+			sre.toString('staff');
+			enableAnswers();
+			enableCleffs();
+			didFirstClick = false;
+			score.reset();
+		} else {
+			disableAnswers();
+			disableCleffs();
+		}
+	}
+
 	function start() {
 		sre = new SightReadingExercises();
 		sre.toString('staff');
 		var answers = allAnswers();
 		for (var i = 0 ; i < answers.length ; i++) {
 			var answer = answers[i];
+			answer.checked = false;
+			answer.disabled = false;
 			answer.addEventListener('click', function() { answerClick(this); } );
 		}
 		var cleffs = allCleffs();
 		for (var i = 0 ; i < cleffs.length ; i++) {
 			var cleff = cleffs[i];
+			cleff.disabled = false;
 			cleff.addEventListener('change', function() { cleffClick(this); } );
 		}
 		score = new TimedScore('time', 'total-success', 'total-error');
+		score.setLimit(60, end);
 		window.addEventListener('keyup', function(event) { event = event || window.event; keyUp(event.keyCode ? event.keyCode : event.which); }, false);
 	}
 
