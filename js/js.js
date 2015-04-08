@@ -4,9 +4,24 @@
 
 	var DELAY_ERROR = 225;
 	var DELAY_SUCCESS = 175;
+	var DELAY_AGAIN = 125;
 
 	var KEY_A = 65;
 	var KEY_G = 71;
+
+	var ONE_MINUTE = 60;
+	var CLASS_DISABLED = 'disabled';
+
+	function again() {
+		var body = document.body;
+		body.className = 'again';
+		initSre();
+		enableAnswers();
+		enableCleffs();
+		didFirstClick = false;
+		score.reset();
+		setTimeout(normal, DELAY_AGAIN);
+	}
 
 	function success() {
 		var body = document.body;
@@ -75,7 +90,7 @@
 		} else {
 			element.disabled = true;
 			element.checked = false;
-			element.parentNode.className = 'disabled';
+			element.parentNode.className = CLASS_DISABLED;
 			error();
 		}
 	}
@@ -96,7 +111,7 @@
 			var answer = answers[i];
 			answer.checked = false;
 			answer.disabled = true;
-			answer.parentNode.className = 'disabled';
+			answer.parentNode.className = CLASS_DISABLED;
 		}
 	}
 
@@ -105,7 +120,7 @@
 		for (var i = 0 ; i < cleffs.length ; i++) {
 			var currentCleff = cleffs[i];
 			currentCleff.disabled = true;
-			currentCleff.parentNode.className = 'disabled';
+			currentCleff.parentNode.className = CLASS_DISABLED;
 		}
 	}
 
@@ -149,23 +164,21 @@
 		buffer.push('');
 		buffer.push('');
 		buffer.push('Again?\n');
-		var again = confirm(buffer.join('\n'));
-		if (again) {
-			sre = new SightReadingExercises();
-			sre.toString('staff');
-			enableAnswers();
-			enableCleffs();
-			didFirstClick = false;
-			score.reset();
+		var playAgain = confirm(buffer.join('\n'));
+		if (playAgain) {
+			again();
 		} else {
 			disableAnswers();
 			disableCleffs();
 		}
 	}
 
-	function start() {
+	function initSre() {
 		sre = new SightReadingExercises();
 		sre.toString('staff');
+	}
+
+	function initSreLayout() {
 		var answers = allAnswers();
 		for (var i = 0 ; i < answers.length ; i++) {
 			var answer = answers[i];
@@ -179,9 +192,18 @@
 			cleff.disabled = false;
 			cleff.addEventListener('change', function() { cleffClick(this); } );
 		}
+	}
+
+	function initScore() {
 		score = new TimedScore('time', 'total-success', 'total-error');
-		score.setLimit(60, end);
+		score.setLimit(ONE_MINUTE, end);
 		window.addEventListener('keyup', function(event) { event = event || window.event; keyUp(event.keyCode ? event.keyCode : event.which); }, false);
+	}
+
+	function start() {
+		initSre();
+		initSreLayout();
+		initScore();
 	}
 
 	window.addEventListener('load', start, false);
