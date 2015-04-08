@@ -1,5 +1,5 @@
 /***************************************************************
- ********* LIBRARY: Sight Reading Exercises Vs. 1.2.3 **********
+ ********* LIBRARY: Sight Reading Exercises Vs. 1.2.4 **********
  ***************************************************************/
 
 var SightReadingExercises = function() {

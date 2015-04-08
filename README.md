@@ -1,4 +1,4 @@
-# Sight Reading Exercises Vs. 1.2.3
+# Sight Reading Exercises Vs. 1.2.4
 
 ## Demo:
 

@@ -20,11 +20,17 @@ pre.display-staff {
 }
 
 div.answer {
-	width: 320px;
+	width: 360px;
+	float: left;
 }
 
 div.timed-score {
 	width: 120px;
+	float: right;
+}
+
+div.answer, div.timed-score {
+	height: 100%;
 }
 
 div.cleff {
@@ -64,3 +70,10 @@ body.success { background-color: lime; }
 
 span.error { color: red; }
 span.success { color: blue; }
+
+span.answers-and-score {
+	display: block;
+	width: 540px;
+	height: 55px;
+	margin: auto;
+}
