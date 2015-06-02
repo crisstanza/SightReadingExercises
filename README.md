@@ -8,6 +8,8 @@ Tested under <b>JSUS</b> (<b>J</b>ava<b>S</b>cript <b>U</b>nit te<b>S</b>ting) -
 
 External library: <b>TimedScore</b> - <a href="http://github.com/crisstanza/TimedScore/" target="_blank">github.com/crisstanza/TimedScore</a>.
 
+Short URL: <a href="http://tinyurl.com/Sight-Reading-Exercises" target="_blank">tinyurl.com/Sight-Reading-Exercises</a>.
+
 ### References:
 
 * http://thesightreadingproject.com/
