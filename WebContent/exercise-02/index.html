@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>svg</title>
+ 		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script type="text/javascript" src="js/js.js"></script>
+	</head>
+	<body>
+		<div>
+			<span id="main-counter"></span>
+			<button>start</button>
+			<svg width="100%" height="100%">
+
+				<defs>
+			  		<line id="line" x1="0" y1="100" x2="100%" y2="100" stroke-width="3" stroke="#000" name="drawing" />
+					<circle id="circle" cx="0" cy="100" r="20" stroke-width="3" stroke="#000" fill="#FFF" name="drawing" />
+			  		<line id="extra-line" x1="0" y1="0" x2="0" y2="0" stroke-width="3" stroke="#000" name="drawing" />
+			  		<text id="text" x="-10" y="10" stroke="#000" font-family="Arial" font-size="29px" name="drawing" visibility="hidden" />
+			  	</defs>
+<!--
+			  	<use xlink:href="#line" x="0" y="100"/>
+			  	<use xlink:href="#line" x="0" y="140"/>
+			  	<use xlink:href="#line" x="0" y="180"/>
+			  	<use xlink:href="#line" x="0" y="220"/>
+			  	<use xlink:href="#line" x="0" y="260"/>
+
+			  	<use xlink:href="#circle" x="50" y="80"/>
+			  	<use xlink:href="#circle" x="90" y="80"/>
+			  	<use xlink:href="#circle" x="50" y="120"/>
+-->
+			</svg>
+		</div>
+	</body>
+</html>

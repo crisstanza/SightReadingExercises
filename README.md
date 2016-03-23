@@ -3,6 +3,7 @@
 ## Demo:
 
 Demo/unit tests: <a href="http://crisstanza.github.io/SightReadingExercises/" target="_blank"><b>crisstanza.github.io/SightReadingExercises</b></a>.
+Second exercise: <a href="http://crisstanza.github.io/SightReadingExercises/exercise-02/" target="_blank"><b>crisstanza.github.io/SightReadingExercises/exercise-02/</b></a>.
 
 Tested under <b>JSUS</b> (<b>J</b>ava<b>S</b>cript <b>U</b>nit te<b>S</b>ting) - <a href="http://crisstanza.github.io/jsus/" target="_blank">crisstanza.github.io/jsus</a>.
 
